@@ -1,0 +1,641 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TESLA | The Future Takes Flight</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080808;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 22px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #242424;
+}
+
+.logo {
+    color: #e82127;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 5px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 13px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #e82127;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 120px 20px 50px;
+    background:
+      linear-gradient(to bottom, rgba(0,0,0,.35), #080808),
+      url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2000&q=90")
+      center/cover;
+}
+
+.tag {
+    color: #ff363d;
+    letter-spacing: 6px;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 8vw, 105px);
+    font-weight: 900;
+    letter-spacing: -3px;
+    line-height: 1;
+}
+
+.hero h1 span {
+    color: #e82127;
+}
+
+.hero p {
+    max-width: 620px;
+    color: #ccc;
+    line-height: 1.8;
+    margin: 25px 0;
+}
+
+.btn {
+    display: inline-block;
+    background: #e82127;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    transition: .3s;
+    border: 1px solid #e82127;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: white;
+    color: black;
+    border-color: white;
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    background: transparent;
+    border-color: #777;
+    margin-left: 10px;
+}
+
+section {
+    padding: 100px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: clamp(30px, 5vw, 48px);
+    margin-bottom: 15px;
+}
+
+.section-title p {
+    color: #999;
+    line-height: 1.7;
+}
+
+.red {
+    color: #e82127;
+}
+
+.car-image {
+    width: 100%;
+    max-height: 470px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    filter: brightness(.8);
+    transition: .5s;
+}
+
+.car-image:hover {
+    filter: brightness(1);
+    transform: scale(1.01);
+}
+
+.specs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.spec-card {
+    background: #151515;
+    border: 1px solid #292929;
+    border-radius: 8px;
+    text-align: center;
+    padding: 30px 12px;
+    transition: .3s;
+}
+
+.spec-card:hover {
+    border-color: #e82127;
+    transform: translateY(-5px);
+}
+
+.spec-card h3 {
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.spec-card p {
+    color: #999;
+    font-size: 12px;
+}
+
+.features {
+    background: #101010;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.feature {
+    padding: 30px;
+    border: 1px solid #292929;
+    border-radius: 8px;
+    background: #151515;
+}
+
+.feature .icon {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    margin-bottom: 15px;
+}
+
+.feature p {
+    color: #aaa;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.future {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.future img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    max-height: 500px;
+}
+
+.future h2 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.future p {
+    color: #aaa;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.elon {
+    background: #101010;
+}
+
+.elon-card {
+    max-width: 950px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 40px;
+    align-items: center;
+    background: #171717;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #303030;
+}
+
+.elon-card img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+}
+
+.elon-card h3 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.elon-card .role {
+    color: #e82127;
+    margin-bottom: 20px;
+}
+
+.elon-card p {
+    color: #bbb;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.disclaimer {
+    font-size: 12px;
+    color: #777;
+    line-height: 1.8;
+}
+
+.cta {
+    text-align: center;
+    background:
+      linear-gradient(rgba(0,0,0,.85), rgba(0,0,0,.95)),
+      url("https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1600&q=80")
+      center/cover;
+}
+
+.cta h2 {
+    font-size: clamp(35px, 6vw, 65px);
+    margin-bottom: 20px;
+}
+
+.cta p {
+    color: #bbb;
+    margin-bottom: 30px;
+}
+
+footer {
+    padding: 30px 7%;
+    text-align: center;
+    color: #777;
+    font-size: 12px;
+    border-top: 1px solid #222;
+    line-height: 2;
+}
+
+footer a {
+    color: #aaa;
+}
+
+@media (max-width: 800px) {
+    header {
+        padding: 18px 5%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    nav a {
+        margin: 0;
+        font-size: 10px;
+    }
+
+    .specs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .future,
+    .elon-card {
+        grid-template-columns: 1fr;
+    }
+
+    .elon-card img {
+        height: 350px;
+        max-width: 300px;
+        margin: auto;
+    }
+
+    section {
+        padding: 75px 6%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">T E S L A</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#car">The Car</a>
+        <a href="#features">Features</a>
+        <a href="#vision">Vision</a>
+        <a href="#elon">Elon Musk</a>
+    </nav>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+    <div class="tag">THE FUTURE IS NOW</div>
+
+    <h1>BEYOND<br><span>GRAVITY.</span></h1>
+
+    <p>
+        Imagine a new generation of electric supercars,
+        combining extraordinary performance, futuristic
+        engineering and the ambition to challenge gravity.
+    </p>
+
+    <div>
+        <a class="btn" href="#car">EXPLORE THE CONCEPT</a>
+        <a class="btn btn-outline" href="#vision">OUR VISION</a>
+    </div>
+</section>
+
+<!-- CAR SECTION -->
+<section id="car">
+    <div class="section-title">
+        <div class="tag">ENGINEERING REIMAGINED</div>
+        <h2>Meet the <span class="red">Roadster</span></h2>
+        <p>
+            An electric performance car concept inspired by
+            Tesla's next-generation Roadster.
+        </p>
+    </div>
+
+    <img
+        class="car-image"
+        src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=90"
+        alt="Luxury sports car concept"
+    >
+
+    <div class="specs">
+        <div class="spec-card">
+            <h3>EV</h3>
+            <p>Electric Performance</p>
+        </div>
+
+        <div class="spec-card">
+            <h3>AWD</h3>
+            <p>All-Wheel Drive Concept</p>
+        </div>
+
+        <div class="spec-card">
+            <h3>AI</h3>
+            <p>Smart Technology Vision</p>
+        </div>
+
+        <div class="spec-card">
+            <h3>∞</h3>
+            <p>Future Possibilities</p>
+        </div>
+    </div>
+
+    <p class="disclaimer" style="margin-top:20px">
+        These are concept labels, not verified specifications
+        for a flying vehicle.
+    </p>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+    <div class="section-title">
+        <div class="tag">NEXT-GENERATION TECHNOLOGY</div>
+        <h2>Designed for <span class="red">Tomorrow</span></h2>
+        <p>Explore the technologies behind this fictional future concept.</p>
+    </div>
+
+    <div class="feature-grid">
+        <div class="feature">
+            <div class="icon">⚡</div>
+            <h3>Electric Power</h3>
+            <p>
+                Explore a vision of electric mobility with
+                instant-response power and a modern,
+                energy-conscious design.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="icon">🚀</div>
+            <h3>Aerospace Inspiration</h3>
+            <p>
+                Imagine rocket-inspired engineering and
+                advanced propulsion concepts for extraordinary
+                future vehicle experiences.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="icon">🧠</div>
+            <h3>Intelligent Systems</h3>
+            <p>
+                Discover the potential of smart interfaces,
+                connected technology and advanced driver
+                assistance systems.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="icon">🌎</div>
+            <h3>Sustainable Mobility</h3>
+            <p>
+                Explore electric transportation and the
+                possibilities of a cleaner mobility future.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="icon">💨</div>
+            <h3>Aerodynamic Design</h3>
+            <p>
+                Smooth bodywork and carefully considered
+                airflow can improve efficiency and performance.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="icon">✨</div>
+            <h3>Premium Experience</h3>
+            <p>
+                A minimalist cockpit, elegant lighting and
+                a futuristic interior complete the concept.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- FUTURE VISION -->
+<section id="vision">
+    <div class="future">
+        <img
+            src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=85"
+            alt="Premium sports car"
+        >
+
+        <div>
+            <div class="tag">A NEW PERSPECTIVE</div>
+            <h2>Drive the Future.<br>
+                <span class="red">Imagine Flight.</span>
+            </h2>
+
+            <p>
+                What if a high-performance electric vehicle
+                could combine road driving with aerospace
+                technology? This concept explores that idea
+                through futuristic visuals and interactive web design.
+            </p>
+
+            <p>
+                Real-world flight requires specialized engineering,
+                extensive testing and regulatory approval.
+                This website is a design concept, not a vehicle
+                engineering plan.
+            </p>
+
+            <a class="btn" href="#elon">DISCOVER THE VISION</a>
+        </div>
+    </div>
+</section>
+
+<!-- ELON MUSK SECTION -->
+<section class="elon" id="elon">
+    <div class="section-title">
+        <div class="tag">THE PEOPLE BEHIND THE IDEAS</div>
+        <h2>Elon <span class="red">Musk</span></h2>
+        <p>Entrepreneur and technology executive associated with Tesla and SpaceX.</p>
+    </div>
+
+    <div class="elon-card">
+        <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Elon_Musk_Royal_Society_%28crop2%29.jpg"
+            alt="Elon Musk"
+            loading="lazy"
+        >
+
+        <div>
+            <h3>Elon Musk</h3>
+            <div class="role">Technology & Innovation</div>
+
+            <p>
+                Elon Musk is known for his involvement in electric
+                vehicles, space exploration and emerging technologies.
+                Tesla focuses on electric vehicles and energy products,
+                while SpaceX develops space transportation systems.
+            </p>
+
+            <p>
+                The combination of automotive and aerospace ideas
+                inspires many futuristic vehicle concepts.
+            </p>
+
+            <a class="btn"
+               href="https://www.tesla.com/roadster"
+               target="_blank"
+               rel="noopener noreferrer">
+                EXPLORE TESLA ROADSTER
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section class="cta">
+    <div class="tag">THE NEXT CHAPTER OF MOBILITY</div>
+    <h2>THE FUTURE<br><span class="red">HAS NO LIMITS.</span></h2>
+    <p>
+        Innovation starts with imagination.
+        The journey to tomorrow begins today.
+    </p>
+
+    <a class="btn"
+       href="https://www.tesla.com/roadster"
+       target="_blank"
+       rel="noopener noreferrer">
+        VISIT OFFICIAL TESLA WEBSITE
+    </a>
+</section>
+
+<footer>
+    <div class="logo">T E S L A</div>
+    <p>Futuristic Flying Car — HTML, CSS & JavaScript Concept</p>
+    <p>
+        Independent educational project. Not an official Tesla website.
+        Images are loaded from external sources.
+    </p>
+    <p>© 2026 Concept Website</p>
+</footer>
+
+<script>
+    // Smooth scrolling for navigation
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function(event) {
+            const target = document.querySelector(this.getAttribute('href'));
+
+            if (target) {
+                event.preventDefault();
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Reveal a welcome message
+    window.addEventListener('load', () => {
+        console.log('Welcome to the Tesla-inspired future concept!');
+    });
+</script>
+
+</body>
+</html>
+
